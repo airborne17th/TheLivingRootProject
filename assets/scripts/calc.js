@@ -3,8 +3,7 @@ var slider = document.getElementById("reachRange");
 var output = document.getElementById("reachValue");
 let playerCount = 0;
 let selectionCount = 0;
-let previous;
-let current;
+let prevClick;
 let reachArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let factionArray = [
   "cat",
@@ -105,11 +104,8 @@ function evaulateReach(reachSum, playerCount, selectionCount) {
 function isSelected(select, faction) {
   if (select === true) {
     this.document.getElementById(faction).src = "assets/img/checked.png";
-    current = faction;
-    if (current != previous) {
-      selectionCount++;
-      previous = current;
-    }
+    selectionCount++;
+    console.log(selectionCount);
     switch (faction) {
       case "cat":
         reachArray[0] = 10;
@@ -145,11 +141,7 @@ function isSelected(select, faction) {
     evaulateReach(reachSum, playerCount, selectionCount);
   } else {
     this.document.getElementById(faction).src = "assets/img/notselected.png";
-    current = faction;
-    if (current != previous) {
-      selectionCount = selectionCount - 1;
-      previous = current;
-    }
+    selectionCount = selectionCount - 1;
     switch (faction) {
       case "cat":
         reachArray[0] = 0;
