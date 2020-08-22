@@ -1,70 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
-    <title>The Living Root | Home</title>
-  </head>
 
-  <body>
-    <header>
-      <h1 contenteditable>
-        <img
-          src="/assets/img/favicon.png"
-          alt="Site's Logo"
-          height="64"
-          width="64"
-        />
-        The Living Root | Home
-      </h1>
-    </header>
-    <div class="left-sidebar" contenteditable>
-      <h1>Navigation</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <title>The Living Root | Home</title>
+</head>
+
+<body>
+  <header>
+    <h1>
+      <img src="/assets/img/favicon.png" alt="Site's Logo" height="64" width="64" />
+      The Living Root | Home
+    </h1>
+  </header>
+  <div class="left-sidebar">
+    <h1>Navigation</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li>Factions</li>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="rules.html">Rules</a></li>
-        <li>Factions</li>
-        <ul>
-          <li>Marquise de Cat</li>
-          <li>Eyrie Dynasties</li>
-          <li>Woodland Alliance</li>
-          <li>Vagabond</li>
-          <li>Lizard Cult</li>
-          <li>Riverfolk Company</li>
-          <li>Great Underground Duchy</li>
-          <li>Corvid Conspiracy</li>
-        </ul>
-        <li>Videos</li>
-        <li>Reach Calculator</li>
-        <li>Map Randomizer</li>
+        <li>Marquise de Cat</li>
+        <li>Eyrie Dynasties</li>
+        <li>Woodland Alliance</li>
+        <li>Vagabond</li>
+        <li>Lizard Cult</li>
+        <li>Riverfolk Company</li>
+        <li>Great Underground Duchy</li>
+        <li>Corvid Conspiracy</li>
       </ul>
-    </div>
-    <main contenteditable>
-      <div class="main_container">
-        <img class="bg-image" src="assets/img/background.jpg" />
-        <div class="centered">
-          <label for="maps">Choose a car:</label>
-          <select name="maps" id="maps">
-            <option value="Fall">Fall</option>
-            <option value="Winter">Winter</option>
-            <option value="Lake">Lake</option>
-            <option value="Mountain">Mountain</option>
-          </select>
-          <br /><br />
-          <button onclick="selectMap()">Select</button>
-          <button onclick="random()">Randomize!</button>
+      <li>Videos</li>
+      <li><a href="calc.html">Reach Calculator</a></li>
+      <li><a href="board.html">Map Randomizer</a></li>
+    </ul>
+  </div>
+  <main>
+    <div class="main_container">
+      <img class="bg-image" src="assets/img/background.jpg" />
+      <div class="centered">
+        <label for="maps">Choose a map:</label>
+        <select name="maps" id="maps" onchange="selectMap(this.value)">
+          <option value="1">Fall</option>
+          <option value="2">Winter</option>
+          <option value="3">Lake</option>
+          <option value="4">Mountain</option>
+        </select>
+        <br />
+        <button onclick="randomize()">Randomize!</button><br><br>
+        <div class="displayMap_container">
+          <img src="assets/img/board/map-fall.png" id="displayMap" alt="display Map">
         </div>
+        <table>
+          <tr>
+            <th>[1]</th>
+            <th>[2]</th>
+            <th>[3]</th>
+            <th>[4]</th>
+            <th>[5]</th>
+            <th>[6]</th>
+            <th>[7]</th>
+            <th>[8]</th>
+            <th>[9]</th>
+            <th>[10]</th>
+            <th>[11]</th>
+            <th>[12]</th>
+          </tr>
+          <tr>
+            <td><img src="./assets/img/board/clearing-blank.png" id="0" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="1" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="2" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="3" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="4" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="5" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="6" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="7" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="8" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="9" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="10" alt="clearing token"></td>
+            <td><img src="./assets/img/board/clearing-blank.png" id="11" alt="clearing token"></td>
+          </tr>
+        </table>
       </div>
-    </main>
-    <div class="right-sidebar" contenteditable></div>
-    <footer contenteditable>Designed by John Kyker 2020</footer>
-  </body>
+    </div>
+  </main>
+  <div class="right-sidebar">
+    <h2>Map Randomizer</h2>
+    <p>Select a map from above and then click the randomize button to generate a randomized selection of clearing.</p>
+  </div>
+  <footer>Designed by John Kyker 2020</footer>
+</body>
 
-  <noscript
-    >Please enable Javascript to continue using this application.</noscript
-  >
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./assets/scripts/board.js"></script>
+<noscript>Please enable Javascript to continue using this application.</noscript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./assets/scripts/board.js"></script>
+
 </html>
