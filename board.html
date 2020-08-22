@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+    <title>The Living Root | Home</title>
+  </head>
+
+  <body>
+    <header>
+      <h1 contenteditable>
+        <img
+          src="/assets/img/favicon.png"
+          alt="Site's Logo"
+          height="64"
+          width="64"
+        />
+        The Living Root | Home
+      </h1>
+    </header>
+    <div class="left-sidebar" contenteditable>
+      <h1>Navigation</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li>Factions</li>
+        <ul>
+          <li>Marquise de Cat</li>
+          <li>Eyrie Dynasties</li>
+          <li>Woodland Alliance</li>
+          <li>Vagabond</li>
+          <li>Lizard Cult</li>
+          <li>Riverfolk Company</li>
+          <li>Great Underground Duchy</li>
+          <li>Corvid Conspiracy</li>
+        </ul>
+        <li>Videos</li>
+        <li>Reach Calculator</li>
+        <li>Map Randomizer</li>
+      </ul>
+    </div>
+    <main contenteditable>
+      <div class="main_container">
+        <img class="bg-image" src="assets/img/background.jpg" />
+        <div class="centered">
+          <label for="maps">Choose a car:</label>
+          <select name="maps" id="maps">
+            <option value="Fall">Fall</option>
+            <option value="Winter">Winter</option>
+            <option value="Lake">Lake</option>
+            <option value="Mountain">Mountain</option>
+          </select>
+          <br /><br />
+          <button onclick="selectMap()">Select</button>
+          <button onclick="random()">Randomize!</button>
+        </div>
+      </div>
+    </main>
+    <div class="right-sidebar" contenteditable></div>
+    <footer contenteditable>Designed by John Kyker 2020</footer>
+  </body>
+
+  <noscript
+    >Please enable Javascript to continue using this application.</noscript
+  >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./assets/scripts/board.js"></script>
+</html>
