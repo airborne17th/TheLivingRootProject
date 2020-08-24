@@ -1,292 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
-    <title>The Living Root | Home</title>
-  </head>
 
-  <body>
-    <header>
-      <h1 contenteditable>
-        <img
-          src="/assets/img/favicon.png"
-          alt="Site's Logo"
-          height="64"
-          width="64"
-        />
-        The Living Root | Home
-      </h1>
-    </header>
-    <div class="left-sidebar" contenteditable>
-      <h1>Navigation</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <title>The Living Root | Reach Calculator</title>
+</head>
+
+<body>
+  <header>
+    <h1 contenteditable>
+      <img src="/assets/img/favicon.png" alt="Site's Logo" height="64" width="64" />
+      The Living Root | Reach Calculator
+    </h1>
+  </header>
+  <div class="left-sidebar">
+    <h1>Navigation</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li>Factions</li>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="rules.html">Rules</a></li>
-        <li>Factions</li>
-        <ul>
-          <li>Marquise de Cat</li>
-          <li>Eyrie Dynasties</li>
-          <li>Woodland Alliance</li>
-          <li>Vagabond</li>
-          <li>Lizard Cult</li>
-          <li>Riverfolk Company</li>
-          <li>Great Underground Duchy</li>
-          <li>Corvid Conspiracy</li>
-        </ul>
-        <li>Videos</li>
-        <li>Reach Calculator</li>
-        <li>Map Randomizer</li>
+        <li>Marquise de Cat</li>
+        <li>Eyrie Dynasties</li>
+        <li>Woodland Alliance</li>
+        <li>Vagabond</li>
+        <li>Lizard Cult</li>
+        <li>Riverfolk Company</li>
+        <li>Great Underground Duchy</li>
+        <li>Corvid Conspiracy</li>
       </ul>
-    </div>
-    <main contenteditable>
-      <div class="main_container">
-        <img
-          class="bg-image"
-          src="assets/img/background.jpg"
-          alt="background image"
-        />
-        <div class="centered">
-          <h1>Reach Calculator</h1>
-          <p>
-            This tool is used to calculate reach. Reach is used to evaluate a
-            balanced game of Root among a number of players. This is only a
-            guideline and suggestion for players to use. By all means experiment
-            with different factions and setups! That being said reach evaluate
-            how much a faction will impact the board and how much territory they
-            will be involved in for fun and more robust games.
-          </p>
-          <h3>Number of Players: <span id="reachValue"></span></h3>
-          <strong><span id="reach_req"></span></strong><br>
-          <div class="slidecontainer">
-            <input type="range" min="2" max="6" class="reachSlider" id="reachRange">
-            <div class="sliderticks">
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
-              </div>
-            
+      <li>Videos</li>
+      <li><a href="calc.html">Reach Calculator</a></li>
+      <li><a href="board.html">Map Randomizer</a></li>
+    </ul>
+  </div>
+  <main contenteditable>
+    <div class="main_container">
+      <img class="bg-image" src="assets/img/background.jpg" alt="background image" />
+      <div class="centered">
+        <h1>Reach Calculator</h1>
+        <p>
+          This tool is used to calculate reach. Reach is used to evaluate a
+          balanced game of Root among a number of players. This is only a
+          guideline and suggestion for players to use. By all means experiment
+          with different factions and setups! That being said reach evaluate
+          how much a faction will impact the board and how much territory they
+          will be involved in for fun and more robust games.
+        </p>
+        <h3>Number of Players: <span id="reachValue"></span></h3>
+        <strong><span id="reach_req"></span></strong><br>
+        <div class="slidecontainer">
+          <input type="range" min="2" max="6" class="reachSlider" id="reachRange">
+          <div class="sliderticks">
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
           </div>
-          <p>
-            <label>Reach Value:</label>
-            <h3><span id="reach_display">0</span></h3><br>
-            <button onclick="reset()">Reset</button>
-          </p>
 
-          <div class="grid-container">
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'cat')"
-                  src="assets/img/notselected.png"
-                  id="cat"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Marquise [10]
-              </h4>
-              <img
-                onclick="isSelected(true, 'cat')"
-                style="cursor: pointer;"
-                src="assets/img/faction_pieces/marquise-piece.png"
-                alt="Marquise Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'duchy')"
-                  src="assets/img/notselected.png"
-                  id="duchy"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Duchy [8]
-              </h4>
-              <img
-                onclick="isSelected(true, 'duchy')"
-                src="assets/img/faction_pieces/duchy-piece.png"
-                alt="Duchy Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'eyrie')"
-                  src="assets/img/notselected.png"
-                  id="eyrie"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Eyrie [7]
-              </h4>
-              <img
-                onclick="isSelected(true, 'eyrie')"
-                src="assets/img/faction_pieces/eyrie-piece.png"
-                alt="Eyrie Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'vagabond')"
-                  src="assets/img/notselected.png"
-                  id="vagabond"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Vagabond [5]
-              </h4>
-              <img
-                onclick="isSelected(true, 'vagabond')"
-                src="assets/img/faction_pieces/vagabond-piece.png"
-                alt="Vagabond Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'otter')"
-                  src="assets/img/notselected.png"
-                  id="otter"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Riverfolk [5]
-              </h4>
-              <img
-                onclick="isSelected(true, 'otter')"
-                src="assets/img/faction_pieces/riverfolk-piece.png"
-                alt="Riverfolk Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'mouse')"
-                  src="assets/img/notselected.png"
-                  id="mouse"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Woodland [3]
-              </h4>
-              <img
-                onclick="isSelected(true, 'mouse')"
-                src="assets/img/faction_pieces/woodland-piece.png"
-                alt="Woodland Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'crow')"
-                  src="assets/img/notselected.png"
-                  id="crow"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Corvids [3]
-              </h4>
-              <img
-                onclick="isSelected(true, 'crow')"
-                src="assets/img/faction_pieces/corvid-piece.png"
-                alt="Corvid Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'lizard')"
-                  src="assets/img/notselected.png"
-                  id="lizard"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Lizards [2]
-              </h4>
-              <img
-                onclick="isSelected(true, 'lizard')"
-                src="assets/img/faction_pieces/cult-piece.png"
-                alt="Cult Piece"
-                height="96"
-                width="104"
-              />
-            </div>
-            <div class="grid-item">
-              <h4>
-                <img
-                  onclick="isSelected(false, 'vagabond2')"
-                  src="assets/img/notselected.png"
-                  id="vagabond2"
-                  alt="Select"
-                  height="32"
-                  width="32"
-                />
-                Vagabond II [2]
-              </h4>
-              <img
-                onclick="isSelected(true, 'vagabond2')"
-                src="assets/img/faction_pieces/vagabond2-piece.png"
-                alt="Vagabond 2 Piece"
-                height="96"
-                width="104"
-              />
-            </div>
+        </div>
+        <p>
+          <label>Reach Value:</label>
+          <h3><span id="reach_display">0</span></h3><br>
+          <button onclick="reset()">Reset</button>
+        </p>
+
+        <div class="grid-container">
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'cat')" src="assets/img/notselected.png" id="cat" alt="Select" height="32"
+                width="32" />
+              Marquise [10]
+            </h4>
+            <img onclick="isSelected(true, 'cat')" style="cursor: pointer;"
+              src="assets/img/faction_pieces/marquise-piece.png" alt="Marquise Piece" height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'duchy')" src="assets/img/notselected.png" id="duchy" alt="Select"
+                height="32" width="32" />
+              Duchy [8]
+            </h4>
+            <img onclick="isSelected(true, 'duchy')" src="assets/img/faction_pieces/duchy-piece.png" alt="Duchy Piece"
+              height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'eyrie')" src="assets/img/notselected.png" id="eyrie" alt="Select"
+                height="32" width="32" />
+              Eyrie [7]
+            </h4>
+            <img onclick="isSelected(true, 'eyrie')" src="assets/img/faction_pieces/eyrie-piece.png" alt="Eyrie Piece"
+              height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'vagabond')" src="assets/img/notselected.png" id="vagabond" alt="Select"
+                height="32" width="32" />
+              Vagabond [5]
+            </h4>
+            <img onclick="isSelected(true, 'vagabond')" src="assets/img/faction_pieces/vagabond-piece.png"
+              alt="Vagabond Piece" height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'otter')" src="assets/img/notselected.png" id="otter" alt="Select"
+                height="32" width="32" />
+              Riverfolk [5]
+            </h4>
+            <img onclick="isSelected(true, 'otter')" src="assets/img/faction_pieces/riverfolk-piece.png"
+              alt="Riverfolk Piece" height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'mouse')" src="assets/img/notselected.png" id="mouse" alt="Select"
+                height="32" width="32" />
+              Woodland [3]
+            </h4>
+            <img onclick="isSelected(true, 'mouse')" src="assets/img/faction_pieces/woodland-piece.png"
+              alt="Woodland Piece" height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'crow')" src="assets/img/notselected.png" id="crow" alt="Select"
+                height="32" width="32" />
+              Corvids [3]
+            </h4>
+            <img onclick="isSelected(true, 'crow')" src="assets/img/faction_pieces/corvid-piece.png" alt="Corvid Piece"
+              height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'lizard')" src="assets/img/notselected.png" id="lizard" alt="Select"
+                height="32" width="32" />
+              Lizards [2]
+            </h4>
+            <img onclick="isSelected(true, 'lizard')" src="assets/img/faction_pieces/cult-piece.png" alt="Cult Piece"
+              height="96" width="104" />
+          </div>
+          <div class="grid-item">
+            <h4>
+              <img onclick="isSelected(false, 'vagabond2')" src="assets/img/notselected.png" id="vagabond2" alt="Select"
+                height="32" width="32" />
+              Vagabond II [2]
+            </h4>
+            <img onclick="isSelected(true, 'vagabond2')" src="assets/img/faction_pieces/vagabond2-piece.png"
+              alt="Vagabond 2 Piece" height="96" width="104" />
           </div>
         </div>
       </div>
-    </main>
-    <div class="right-sidebar" contenteditable>
-      <h1>Player Reach Table</h1>
-      <table class="calc-table">
-        <tr>
-          <th>2P</th>
-          <th>3P</th>
-          <th>4P</th>
-          <th>5P</th>
-          <th>6P</th>
-        </tr>
-        <tr>
-          <td>+17</td>
-          <td>+18</td>
-          <td>+21</td>
-          <td>+25</td>
-          <td>+28</td>
-        </tr>
-      </table>
     </div>
-    <footer contenteditable>Designed by John Kyker 2020</footer>
-  </body>
+  </main>
+  <div class="right-sidebar">
+    <h1>Player Reach Table</h1>
+    <table class="calc-table">
+      <tr>
+        <th>2P</th>
+        <th>3P</th>
+        <th>4P</th>
+        <th>5P</th>
+        <th>6P</th>
+      </tr>
+      <tr>
+        <td>+17</td>
+        <td>+18</td>
+        <td>+21</td>
+        <td>+25</td>
+        <td>+28</td>
+      </tr>
+    </table>
+  </div>
+  <footer>Designed by John Kyker 2020</footer>
+</body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./assets/scripts/calc.js"></script>
-  <!-- <script src="general.js?v=1596373933"></script> -->
-  <!-- Global site tag - Google Analytics -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./assets/scripts/calc.js"></script>
+<!-- <script src="general.js?v=1596373933"></script> -->
+<!-- Global site tag - Google Analytics -->
+
 </html>

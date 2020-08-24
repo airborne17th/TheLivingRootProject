@@ -96,17 +96,17 @@ input:checked+.slider:before {
 
 .main_container {
   position: relative;
-  text-align: center;
 }
 
-/* Centered text */
+/* Bottom right text */
 .centered {
   position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
   color: black;
-  background-color: #fdecc4;
-  opacity: 1;
-  z-index: 2;
-  padding: 5px;
 }
 
 .author-img {
